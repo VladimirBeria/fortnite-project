@@ -1,0 +1,8 @@
+.header .nav-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.header .brand-logo{
+    color: #ccc;
+}

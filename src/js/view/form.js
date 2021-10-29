@@ -14,11 +14,11 @@ class FormUI {
     }
 
     get nameValue(){
-        return this.name
+        return this.name.value
     }
 
-    getRarityValue(){
-        return this.rarity
+    get rarityValue(){
+        return this.rarity.value
     }
 
     /**

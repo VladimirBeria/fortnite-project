@@ -9,13 +9,14 @@ class ApiService {
         this.urlRarity = config.urlRarity
     }
 
-    async items(){
+    async items(params){
         try {
             const response = await axios.get(`${this.url}`, {
                 headers: {
                     'Content-type': 'application/json',
                     Authorization : `${this.key}`
-                }
+                },
+                params
             })
             return response.data
         } catch (e) {

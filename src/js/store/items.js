@@ -17,7 +17,6 @@ class Items {
         const [arrOfItems, arrOfRarity] = response;
         this.skins = this.serializeItems(arrOfItems.items)
         this.rarities = this.serializeRarities(arrOfRarity.rarities)
-        console.log(this.rarities)
         this.debugSkins()
         return response
     }
@@ -44,7 +43,6 @@ class Items {
 
     async fetchItems(params){
         const response = await this.api.items(params)
-        console.log(response.items)
         this.lastSearch = this.serializeSkins(response.items)
     }
 

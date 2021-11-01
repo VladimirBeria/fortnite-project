@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         onFormSubmit()
     })
 
-    form.addEventListener('reset', (e)=>{
+    form.addEventListener('reset', (e) => {
 
     })
 
@@ -24,12 +24,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function onFormSubmit() {
+        //values put in name and rarity input
         const name = formUI.nameValue
         const rarity = formUI.rarityValue
 
-        await items.fetchItems({
-            name,
-            rarity
-        })
+        switch (name){
+            case '':
+                await items.fetchItems({
+                    rarity
+                })
+                break;
+            default:
+                await items.fetchItems({
+                    name,
+                    rarity
+                })
+        }
+
+        if (rarity === ''){
+            await items.fetchItems({
+                name
+            })
+        }
     }
 })

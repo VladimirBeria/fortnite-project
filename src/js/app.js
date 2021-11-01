@@ -28,22 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = formUI.nameValue
         const rarity = formUI.rarityValue
 
-        switch (name){
-            case '':
-                await items.fetchItems({
-                    rarity
-                })
-                break;
-            default:
-                await items.fetchItems({
-                    name,
-                    rarity
-                })
-        }
-
         if (rarity === ''){
             await items.fetchItems({
                 name
+            })
+        } else if (name === ''){
+            await items.fetchItems({
+                rarity
+            })
+        }else {
+            await items.fetchItems({
+                name,
+                rarity
             })
         }
     }

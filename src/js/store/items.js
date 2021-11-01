@@ -3,7 +3,6 @@ import api from "../services/apiService";
 class Items {
     constructor(api) {
         this.api = api
-        this.lastSearch = {}
     }
 
     async init() {
@@ -44,6 +43,7 @@ class Items {
     async fetchItems(params){
         const response = await this.api.items(params)
         this.lastSearch = this.serializeSkins(response.items)
+        console.log(this.lastSearch)
     }
 
 

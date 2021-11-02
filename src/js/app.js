@@ -2,6 +2,7 @@ import './plugins'
 import '../css/style.css'
 import items from "./store/items";
 import formUI from "./view/form";
+import itemsIU from "./view/items";
 
 document.addEventListener('DOMContentLoaded', () => {
     initApp()
@@ -10,12 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //form events
 
     form.addEventListener('submit', (e) => {
-      e.preventDefault()
+        e.preventDefault()
         onFormSubmit()
     })
 
     form.addEventListener('reset', (e) => {
-
+        itemsIU.clearContainer()
     })
 
     async function initApp() {
@@ -28,19 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = formUI.nameValue
         const rarity = formUI.rarityValue
 
-        if (rarity === ''){
+        if (rarity === '') {
             await items.fetchItems({
                 name
             })
-        } else if (name === ''){
+        } else if (name === '') {
             await items.fetchItems({
                 rarity
             })
-        }else {
+        } else {
             await items.fetchItems({
                 name,
                 rarity
             })
         }
+
+        itemsIU.renderItems(items.lastSearch)
     }
 })

@@ -3,6 +3,7 @@ import api from "../services/apiService";
 class Items {
     constructor(api) {
         this.api = api
+        this.lastSearch = {}
     }
 
     async init() {
@@ -38,20 +39,28 @@ class Items {
 
     debugSkins() {
         console.log(this.skins)
+        console.log(this.rarities)
     }
 
-    async fetchItems(params){
+    async fetchItems(params) {
         const response = await this.api.items(params)
         this.lastSearch = this.serializeSkins(response.items)
         console.log(this.lastSearch)
     }
 
 
-    serializeSkins(skins){
-        return Object.values(skins).map((skin)=>{
-            return{
+    serializeSkins(skins) {
+        return Object.values(skins).map((skin) => {
+            return {
                 ...skins,
                 name: skin.name,
+                images: skin.images,
+                price: skin.price,
+                type: skin.type,
+                rarity: skin.rarity,
+                interest: skin.interest,
+                releaseDate: skin.releaseDate,
+                set: skin.set
             }
         })
 

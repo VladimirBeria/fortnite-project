@@ -3,6 +3,73 @@
     justify-content: center;
 }
 
-.header .brand-logo{
+.header .brand-logo {
     color: #ccc;
+}
+
+/*rarities*/
+.COMMON {
+    background: radial-gradient(#bebebe, #646464);
+    border: 3px solid #b1b1b1;
+}
+
+.UNCOMMON {
+    background: radial-gradient(#6abb1e, #175117);
+    border: 3px solid #88e339;
+}
+
+.RARE {
+    background: radial-gradient(#2cc0ff, #143877);
+    border: 3px solid #37d0ff;
+}
+
+.Epic {
+    background: radial-gradient(#c359ff, #4c2483);
+    border: 3px solid #ea5eff;
+}
+
+.LEGENDARY {
+    background: radial-gradient(#ea8d23, #78371d);
+    border: 3px solid #e98d4b;
+}
+
+/*item card*/
+.content-box {
+    background: rgba(0, 0, 0, .3);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 0.5rem 0.3rem;
+    color: #fff;
+}
+
+.item-name {
+    margin: 0 7px;
+    font-size: 20px;
+    font-family: luckiest guy, poppins, lato, calibri, arial;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 0 10px rgb(0 0 0 / 50%);
+    font-weight: 700;
+}
+
+.item-price {
+    text-align: center;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.price-wrapper {
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.coin-img {
+    height: 20px;
+}
+
+.item-img {
+    width: 100%;
 }
